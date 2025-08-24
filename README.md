@@ -5,7 +5,6 @@
 ![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
 ![LangChain](https://img.shields.io/badge/LangChain-0.3.0-green.svg)
 ![LangGraph](https://img.shields.io/badge/LangGraph-0.2.56-orange.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![Status](https://img.shields.io/badge/Status-Research%20Project-red.svg)
 
 *A sophisticated multi-agent AI system for algorithmic trading and portfolio management*
