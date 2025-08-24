@@ -392,7 +392,7 @@ We welcome contributions from researchers, developers, and financial professiona
 
 ## Reference : 
 
-- **help**: [GitHub Discussions](https://github.com/virattt/ai-hedge-fund)
+- Github repository: [GitHub Discussions](https://github.com/virattt/ai-hedge-fund)
 
 ---
 
