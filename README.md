@@ -139,13 +139,6 @@ ai-hedge-fund/
 4. Push to the branch
 5. Create a Pull Request
 
-**Important**: Please keep your pull requests small and focused.  This will make it easier to review and merge.
-
-## Feature Requests
-
-If you have a feature request, please open an [issue](https://github.com/virattt/ai-hedge-fund/issues) and make it is tagged with `enhancement`.
-
-## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 # AI-Financial-Orchestrator
