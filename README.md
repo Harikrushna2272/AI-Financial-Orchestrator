@@ -1,144 +1,406 @@
-# AI Hedge Fund
+# 🤖 AI-Financial-Orchestrator
 
-This is a proof of concept for an AI-powered hedge fund.  The goal of this project is to explore the use of AI to make trading decisions.  This project is for **educational** purposes only and is not intended for real trading or investment.
+<div align="center">
 
-This system employs several agents working together:
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![LangChain](https://img.shields.io/badge/LangChain-0.3.0-green.svg)
+![LangGraph](https://img.shields.io/badge/LangGraph-0.2.56-orange.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Status](https://img.shields.io/badge/Status-Research%20Project-red.svg)
 
-1. Valuation Agent - Calculates the intrinsic value of a stock and generates trading signals
-2. Sentiment Agent - Analyzes market sentiment and generates trading signals
-3. Fundamentals Agent - Analyzes fundamental data and generates trading signals
-4. Technical Analyst - Analyzes technical indicators and generates trading signals
-5. Risk Manager - Calculates risk metrics and sets position limits
-6. Portfolio Manager - Makes final trading decisions and generates orders
-   
-<img width="1060" alt="Screenshot 2025-01-03 at 5 39 25 PM" src="https://github.com/user-attachments/assets/4611aace-27d0-43b2-9a70-385b40336e3f" />
+*A sophisticated multi-agent AI system for algorithmic trading and portfolio management*
 
-Note: the system simulates trading decisions, it does not actually trade.
+[🚀 Quick Start](#quick-start) • [📊 Features](#features) • [🏗️ Architecture](#architecture) • [📈 Usage](#usage) • [🔧 Setup](#setup) • [📚 Documentation](#documentation)
 
-## Disclaimer
+</div>
 
-This project is for **educational and research purposes only**.
+---
 
-- Not intended for real trading or investment
-- No warranties or guarantees provided
-- Past performance does not indicate future results
-- Creator assumes no liability for financial losses
-- Consult a financial advisor for investment decisions
+## 🎯 Overview
 
-By using this software, you agree to use it solely for learning purposes.
+The **AI-Financial-Orchestrator** is an advanced proof-of-concept system that demonstrates the potential of artificial intelligence in financial markets through a sophisticated multi-agent architecture. This research project combines cutting-edge AI technologies with traditional financial analysis to create an intelligent trading system.
 
-## Table of Contents
-- [Setup](#setup)
-- [Usage](#usage)
-  - [Running the Hedge Fund](#running-the-hedge-fund)
-  - [Running the Backtester](#running-the-backtester)
-- [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [Feature Requests](#feature-requests)
-- [License](#license)
+### 🎯 Key Objectives
 
-## Setup
+- **Multi-Agent Collaboration**: Six specialized AI agents working in concert to analyze markets
+- **Comprehensive Analysis**: Technical, fundamental, sentiment, and valuation analysis
+- **Risk Management**: Sophisticated risk assessment and position sizing
+- **Backtesting Framework**: Historical performance validation
+- **Educational Platform**: Learn about AI applications in quantitative finance
 
-Clone the repository:
+<div align="center">
+<img width="1060" alt="AI Hedge Fund System Architecture" src="https://github.com/user-attachments/assets/4611aace-27d0-43b2-9a70-385b40336e3f" />
+</div>
+
+---
+
+## 🚀 Quick Start
+
 ```bash
-git clone https://github.com/virattt/ai-hedge-fund.git
+# Clone the repository
+git clone https://github.com/Harikrushna2272/AI-Financial-Orchestrator.git
 cd ai-hedge-fund
-```
 
-1. Install Poetry (if not already installed):
-```bash
-curl -sSL https://install.python-poetry.org | python3 -
-```
-
-2. Install dependencies:
-```bash
+# Install dependencies
 poetry install
-```
 
-3. Set up your environment variables:
-```bash
-# Create .env file for your API keys
+# Set up environment variables
 cp .env.example .env
-```
+# Edit .env with your API keys
 
-Set the API keys in the .env file:
-```
-# Get your OpenAI API key from https://platform.openai.com/
-OPENAI_API_KEY=your-openai-api-key
-
-# Get your Financial Datasets API key from https://financialdatasets.ai/
-FINANCIAL_DATASETS_API_KEY=your-financial-datasets-api-key
-```
-
-**Important**: You must to set the OpenAI API key for the hedge fund to work.
-
-Financial data for AAPL, GOOGL, MSFT, NVDA, and TSLA is free and does not require an API key.
-
-For any other ticker, you will need to set the `FINANCIAL_DATASETS_API_KEY` in the .env file.
-
-## Usage
-
-### Running the Hedge Fund
-```bash
+# Run the hedge fund
 poetry run python src/main.py --ticker AAPL,MSFT,NVDA
-```
 
-**Example Output:**
-<img width="992" alt="Screenshot 2025-01-06 at 5 50 17 PM" src="https://github.com/user-attachments/assets/e8ca04bf-9989-4a7d-a8b4-34e04666663b" />
-
-You can also specify a `--show-reasoning` flag to print the reasoning of each agent to the console.
-
-```bash
-poetry run python src/main.py --ticker AAPL --show-reasoning
-```
-You can optionally specify the start and end dates to make decisions for a specific time period.
-
-```bash
-poetry run python src/main.py --ticker AAPL,MSFT,NVDA --start-date 2024-01-01 --end-date 2024-03-01 
-```
-
-### Running the Backtester
-
-```bash
+# Run backtesting
 poetry run python src/backtester.py --ticker AAPL,MSFT,NVDA
 ```
 
-**Example Output:**
-<img width="941" alt="Screenshot 2025-01-06 at 5 47 52 PM" src="https://github.com/user-attachments/assets/00e794ea-8628-44e6-9a84-8f8a31ad3b47" />
+---
 
-You can optionally specify the start and end dates to backtest over a specific time period.
+## 📊 Features
 
-```bash
-poetry run python src/backtester.py --ticker AAPL,MSFT,NVDA --start-date 2024-01-01 --end-date 2024-03-01
+### 🧠 Multi-Agent Intelligence System
+
+| Agent | Specialization | Capabilities |
+|-------|---------------|--------------|
+| **Valuation Agent** | Intrinsic Value Analysis | DCF modeling, P/E analysis, growth projections |
+| **Sentiment Agent** | Market Sentiment | News analysis, social media sentiment, market mood |
+| **Fundamentals Agent** | Financial Metrics | Balance sheet analysis, cash flow, profitability ratios |
+| **Technical Analyst** | Chart Patterns | Moving averages, RSI, MACD, support/resistance |
+| **Risk Manager** | Risk Assessment | VaR calculation, position limits, portfolio optimization |
+| **Portfolio Manager** | Decision Orchestration | Signal aggregation, order generation, execution |
+
+### 🔬 Advanced Capabilities
+
+- **Real-time Data Integration**: Live market data and financial metrics
+- **Dynamic Portfolio Management**: Automated rebalancing and position sizing
+- **Comprehensive Backtesting**: Historical performance analysis with detailed metrics
+- **Risk-Aware Trading**: Sophisticated risk management and position limits
+- **Multi-Timeframe Analysis**: Short-term and long-term market perspectives
+- **Customizable Workflows**: Selective agent activation and parameter tuning
+
+### 📈 Performance Analytics
+
+- **Sharpe Ratio**: Risk-adjusted return measurement
+- **Maximum Drawdown**: Worst-case scenario analysis
+- **Win Rate**: Percentage of profitable trades
+- **Profit Factor**: Ratio of gross profit to gross loss
+- **Calmar Ratio**: Annual return to maximum drawdown ratio
+
+---
+
+## 🏗️ Architecture
+
+### System Design
+
+The AI Hedge Fund employs a sophisticated **StateGraph** architecture using LangGraph, enabling complex multi-agent workflows with state management and conditional routing.
+
+```mermaid
+graph TD
+    A[Input: Ticker List] --> B[Data Collection]
+    B --> C[Valuation Agent]
+    B --> D[Sentiment Agent]
+    B --> E[Fundamentals Agent]
+    B --> F[Technical Analyst]
+    C --> G[Risk Manager]
+    D --> G
+    E --> G
+    F --> G
+    G --> H[Portfolio Manager]
+    H --> I[Trading Decisions]
+    I --> J[Order Generation]
 ```
 
-## Project Structure 
+### Agent Communication Flow
+
+1. **Data Ingestion**: Market data, financial statements, and sentiment indicators
+2. **Parallel Analysis**: Agents process data simultaneously for efficiency
+3. **Signal Generation**: Each agent produces trading signals with confidence scores
+4. **Risk Assessment**: Risk manager evaluates portfolio impact and position limits
+5. **Decision Aggregation**: Portfolio manager combines signals into final decisions
+6. **Execution Planning**: Order generation with position sizing and timing
+
+### Technology Stack
+
+- **AI Framework**: LangChain + LangGraph for agent orchestration
+- **Language Model**: OpenAI GPT-4o for natural language reasoning
+- **Data Processing**: Pandas + NumPy for financial calculations
+- **Visualization**: Matplotlib for performance charts
+- **CLI Interface**: Rich + Questionary for interactive experience
+- **Dependency Management**: Poetry for reproducible environments
+
+---
+
+## 📈 Usage
+
+### Basic Trading Simulation
+
+```bash
+# Analyze single stock
+poetry run python src/main.py --ticker AAPL
+
+# Multi-stock portfolio analysis
+poetry run python src/main.py --ticker AAPL,MSFT,NVDA,GOOGL,TSLA
+
+# With detailed reasoning output
+poetry run python src/main.py --ticker AAPL --show-reasoning
+
+# Custom date range analysis
+poetry run python src/main.py --ticker AAPL,MSFT --start-date 2024-01-01 --end-date 2024-03-01
+```
+
+### Advanced Backtesting
+
+```bash
+# Comprehensive backtest with performance metrics
+poetry run python src/backtester.py --ticker AAPL,MSFT,NVDA
+
+# Custom backtest period
+poetry run python src/backtester.py --ticker AAPL,MSFT,NVDA --start-date 2024-01-01 --end-date 2024-06-30
+
+# Interactive backtest with custom parameters
+poetry run python src/backtester.py
+```
+
+### Example Output
+
+<div align="center">
+<img width="992" alt="Trading Decision Output" src="https://github.com/user-attachments/assets/e8ca04bf-9989-4a7d-a8b4-34e04666663b" />
+</div>
+
+<div align="center">
+<img width="941" alt="Backtest Results" src="https://github.com/user-attachments/assets/00e794ea-8628-44e6-9a84-8f8a31ad3b47" />
+</div>
+
+---
+
+## 🔧 Setup
+
+### Prerequisites
+
+- **Python 3.9+**: Modern Python with type hints support
+- **Poetry**: Dependency management and virtual environments
+- **API Keys**: OpenAI API key (required), Financial Datasets API key (optional)
+
+### Installation
+
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/Harikrushna2272/AI-Financial-Orchestrator.git
+   cd AI-Financial-Orchestrator
+   ```
+
+2. **Install Poetry** (if not installed)
+   ```bash
+   curl -sSL https://install.python-poetry.org | python3 -
+   ```
+
+3. **Install Dependencies**
+   ```bash
+   poetry install
+   ```
+
+4. **Environment Configuration**
+   ```bash
+   cp .env.example .env
+   ```
+
+   Configure your `.env` file:
+   ```env
+   # Required: OpenAI API key for AI reasoning
+   OPENAI_API_KEY=your-openai-api-key-here
+   
+   # Optional: Financial Datasets API for extended data
+   FINANCIAL_DATASETS_API_KEY=your-financial-datasets-api-key-here
+   ```
+
+### API Key Setup
+
+- **OpenAI API**: Required for all AI agent reasoning
+  - Get your key at [OpenAI Platform](https://platform.openai.com/)
+  - Free tier available for testing
+
+- **Financial Datasets API**: Optional for extended ticker support
+  - Free data available for: AAPL, GOOGL, MSFT, NVDA, TSLA
+  - Premium data for additional tickers
+
+---
+
+## 📚 Documentation
+
+### Project Structure
+
 ```
 ai-hedge-fund/
 ├── src/
-│   ├── agents/                   # Agent definitions and workflow
-│   │   ├── fundamentals.py       # Fundamental analysis agent
-│   │   ├── portfolio_manager.py  # Portfolio management agent
-│   │   ├── risk_manager.py       # Risk management agent
-│   │   ├── sentiment.py          # Sentiment analysis agent
-│   │   ├── technicals.py         # Technical analysis agent
-│   │   ├── valuation.py          # Valuation analysis agent
-│   ├── tools/                    # Agent tools
-│   │   ├── api.py                # API tools
-│   ├── backtester.py             # Backtesting tools
-│   ├── main.py # Main entry point
-├── pyproject.toml
-├── ...
+│   ├── agents/                   # AI Agent Implementations
+│   │   ├── fundamentals.py       # Fundamental analysis & financial metrics
+│   │   ├── portfolio_manager.py  # Portfolio optimization & decision making
+│   │   ├── risk_manager.py       # Risk assessment & position limits
+│   │   ├── sentiment.py          # Market sentiment analysis
+│   │   ├── technicals.py         # Technical indicators & chart patterns
+│   │   └── valuation.py          # Intrinsic value & DCF modeling
+│   ├── data/                     # Data Models & Caching
+│   │   ├── cache.py              # Data caching mechanisms
+│   │   └── models.py             # Data structures & schemas
+│   ├── graph/                    # Workflow Orchestration
+│   │   └── state.py              # State management & data flow
+│   ├── tools/                    # External Integrations
+│   │   └── api.py                # Financial data APIs
+│   ├── utils/                    # Utility Functions
+│   │   ├── analysts.py           # Agent coordination logic
+│   │   ├── display.py            # Output formatting & visualization
+│   │   └── progress.py           # Progress tracking & user feedback
+│   ├── backtester.py             # Historical performance testing
+│   └── main.py                   # Application entry point
+├── pyproject.toml                # Project configuration & dependencies
+├── poetry.lock                   # Locked dependency versions
+└── README.md                     # Project documentation
 ```
 
-## Contributing
+### Agent Details
 
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+#### Valuation Agent (`valuation.py`)
+- **Purpose**: Calculate intrinsic stock values using multiple methodologies
+- **Methods**: Discounted Cash Flow (DCF), P/E ratio analysis, growth projections
+- **Output**: Buy/sell signals based on value vs. price discrepancies
 
+#### Sentiment Agent (`sentiment.py`)
+- **Purpose**: Analyze market sentiment and emotional indicators
+- **Sources**: News sentiment, social media trends, market mood indicators
+- **Output**: Sentiment-based trading signals with confidence scores
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-# AI-Financial-Orchestrator
+#### Fundamentals Agent (`fundamentals.py`)
+- **Purpose**: Analyze company financial health and performance
+- **Metrics**: Revenue growth, profitability ratios, debt levels, cash flow
+- **Output**: Fundamental strength assessments and trading recommendations
+
+#### Technical Analyst (`technicals.py`)
+- **Purpose**: Identify chart patterns and technical indicators
+- **Indicators**: Moving averages, RSI, MACD, Bollinger Bands, support/resistance
+- **Output**: Technical buy/sell signals with trend analysis
+
+#### Risk Manager (`risk_manager.py`)
+- **Purpose**: Assess portfolio risk and set position limits
+- **Metrics**: Value at Risk (VaR), maximum drawdown, correlation analysis
+- **Output**: Position sizing recommendations and risk warnings
+
+#### Portfolio Manager (`portfolio_manager.py`)
+- **Purpose**: Orchestrate final trading decisions and order generation
+- **Process**: Signal aggregation, conflict resolution, execution planning
+- **Output**: Final trading decisions with position sizes and timing
+
+### Configuration Options
+
+#### Command Line Arguments
+
+| Argument | Description | Default | Example |
+|----------|-------------|---------|---------|
+| `--ticker` | Stock symbols to analyze | None | `AAPL,MSFT,NVDA` |
+| `--start-date` | Analysis start date | 1 year ago | `2024-01-01` |
+| `--end-date` | Analysis end date | Today | `2024-06-30` |
+| `--show-reasoning` | Display agent reasoning | False | `--show-reasoning` |
+
+#### Environment Variables
+
+| Variable | Description | Required | Default |
+|----------|-------------|----------|---------|
+| `OPENAI_API_KEY` | OpenAI API key for AI reasoning | Yes | None |
+| `FINANCIAL_DATASETS_API_KEY` | Financial data API key | No | None |
+
+---
+
+## ⚠️ Important Disclaimers
+
+### Educational Purpose Only
+
+This project is designed **exclusively for educational and research purposes**. It demonstrates AI applications in finance but is **not intended for real trading or investment decisions**.
+
+### Key Limitations
+
+- **No Real Trading**: System simulates decisions only, no actual market orders
+- **Historical Data**: Analysis based on past data, not predictive guarantees
+- **Model Limitations**: AI models have inherent limitations and biases
+- **Market Complexity**: Real markets involve factors beyond AI analysis scope
+
+### Risk Warnings
+
+- **No Financial Advice**: This software does not constitute investment advice
+- **No Guarantees**: Past performance does not indicate future results
+- **No Liability**: Creators assume no responsibility for financial losses
+- **Professional Consultation**: Always consult qualified financial advisors
+
+### Responsible Usage
+
+By using this software, you acknowledge and agree to:
+- Use solely for educational and research purposes
+- Not rely on outputs for actual investment decisions
+- Understand the experimental nature of AI trading systems
+- Accept all risks associated with financial market analysis
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions from researchers, developers, and financial professionals interested in AI applications in finance.
+
+### Contribution Guidelines
+
+1. **Fork the Repository**
+   ```bash
+   git clone https://github.com/Harikrushna2272/AI-Financial-Orchestrator.git
+   ```
+
+2. **Create Feature Branch**
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. **Development Setup**
+   ```bash
+   poetry install
+   poetry run pre-commit install
+   ```
+
+4. **Code Quality**
+   - Follow PEP 8 style guidelines
+   - Add comprehensive tests for new features
+   - Update documentation for API changes
+   - Ensure all tests pass before submitting
+
+5. **Submit Pull Request**
+   - Keep PRs focused and well-documented
+   - Include clear description of changes
+   - Reference related issues when applicable
+
+### Development Tools
+
+- **Code Formatting**: Black for consistent code style
+- **Import Sorting**: isort for organized imports
+- **Linting**: flake8 for code quality checks
+- **Testing**: pytest for comprehensive test coverage
+
+---
+
+## 🙏 Acknowledgments
+
+- **OpenAI**: For providing the GPT-4 language model
+- **LangChain**: For the agent framework and tools
+- **Financial Datasets**: For market data and financial metrics
+- **Open Source Community**: For the underlying libraries and tools
+
+---
+
+## Reference : 
+
+- **help**: [GitHub Discussions](https://github.com/virattt/ai-hedge-fund)
+
+---
+
+<div align="center">
+
+**Built with ❤️ for the AI and Finance communities**
+
+*This project demonstrates the intersection of artificial intelligence and quantitative finance, serving as a platform for research and education in algorithmic trading.*
+
+</div>
